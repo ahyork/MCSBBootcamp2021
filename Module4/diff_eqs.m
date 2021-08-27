@@ -23,6 +23,7 @@ display(P(end))
 
 figure(2); hold on;
 plot(T, P, '-r')
-plot(T, zeros(1, length(T)) + 142.86, '--b')
+%plot(T, zeros(1, length(T)) + 142.86, '--b')
+plot([0, 2.0], zeros(1, 2) + 142.86, '--b')
 
 pause()
