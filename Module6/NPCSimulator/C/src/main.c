@@ -94,14 +94,17 @@ int main( int argc, char *argv[] )
         x[1] = x[1] + alpha*normRand2;
 
         // boundaries
-        if (x[0]>L/2)
+        if (x[0] > L/2) {
             x[0]=L/2;
-        else if (x[0]<-L/2)
+        } else if (x[0] < -L/2) {
             x[0]=-L/2;
-        if (x[1]>L/2)
+        }
+
+        if (x[1] > L/2) {
             x[1]=L/2;
-        else if (x[1]<-L/2)
+        } else if (x[1] < -L/2) {
             x[1]=-L/2;
+        }
 
         // test for NPC capture
         if ( (x[0]-NPCLocation[0])*(x[0]-NPCLocation[0]) + (x[1]-NPCLocation[1])*(x[1]-NPCLocation[1]) < NPCSize*NPCSize )

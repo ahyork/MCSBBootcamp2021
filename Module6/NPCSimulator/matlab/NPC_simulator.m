@@ -43,16 +43,16 @@ parfor iSample=1:NSample
         x = x + alpha*randn(1,2);
         
         % boundaries
-        if x(1)>L/2
-            x(1)=L/2;
-        elseif x(1)<-L/2
-            x(1)=-L/2;
+        if x(1) > L/2
+            x(1) = L/2;
+        elseif x(1) < -L/2
+            x(1) = -L/2;
         end
         
-        if x(2)>L/2
-            x(2)=L/2;
-        elseif x(2)<-L/2
-            x(2)=-L/2;
+        if x(2) > L/2
+            x(2) = L/2;
+        elseif x(2) < -L/2
+            x(2) = -L/2;
         end
         
         % test for NPC capture
