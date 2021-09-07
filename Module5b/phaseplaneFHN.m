@@ -21,8 +21,11 @@ dxdt =@ (t,x) [f(x(1:10), x(11:20)) + I(t) + inter(x);
               ];
 
 % solve!
-%[T,X] = ode45(dxdt,[0,200], [zeros(10, 1) - 1.5; zeros(10, 1) - 0.5]);
-[T,X] = ode45(dxdt,[0,200], 4 * rand(20, 1) - 2);
+% use for steady state i.e. a = 1.0
+%[T,X] = ode45(dxdt,[0,100], [zeros(10, 1) - 1.5; zeros(10, 1) - 0.5]);
+
+% use for oscillation i.e. a = 0.5
+[T,X] = ode45(dxdt,[0, 100], 4 * rand(20, 1) - 2);
 
 
 
@@ -52,4 +55,14 @@ xlabel('time');
 for i = 1:10
     plot(T, X(:, i), ['-', c(i)]);
     plot(T, X(:, 10 + i), ['-', c(i)]);
+end
+
+for nt = 1:numel(T)
+    figure(3); clf; hold on; box on;
+    plot(X(nt, 1:10));
+    set(gca, 'ylim', [-2.5, 2.5]);
+    title(sprintf('Current Time: %0.2f', T(nt)));
+    xlabel('Cell');
+    ylabel('Voltage');
+    drawnow;
 end
