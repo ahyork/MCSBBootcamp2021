@@ -22,7 +22,7 @@ dxdt =@ (t,x) [f(x(1:10), x(11:20)) + I(t) + inter(x);
 
 % solve!
 %[T,X] = ode45(dxdt,[0,200], [zeros(10, 1) - 1.5; zeros(10, 1) - 0.5]);
-[T,X] = ode45(dxdt,[0,200], 4 * rand(20, 1) - 2);
+[T,X] = ode45(dxdt,[0,200], rand(20, 1));
 
 
 
@@ -39,7 +39,7 @@ wArray = linspace(-2.5, 2.52,32);
 % the Matlab plot command for a field of arrows is:
 quiver(uMesh, wMesh, f(uMesh, wMesh), g(uMesh,wMesh), 0.5)
 
-c = ['r', 'b', 'c', 'm', 'g', 'k', 'y', 'c', 'b', 'r'];
+c = ['r', 'b', 'c', 'm', 'g', 'k', 'y', 'r', 'b', 'c'];
 
 for i = 1:10
     plot(X(:, i), X(:, 10 + i), ['-', c(i)])
